@@ -98,7 +98,7 @@ wait(1)
 
 local Discord = Instance.new("ScreenGui")
 Discord.Name = "DiscordV2"
-Discord.Parent = game:GetService("CoreGui") or game.CoreGui
+Discord.Parent = game:GetService("CoreGui")
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 function DiscordUI:Window(text,mainclr,cls)
