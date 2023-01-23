@@ -1,5 +1,9 @@
+-- RaiderHub • UI Library --
+-- Made by SupLuaYT --
+-- Do Not Copyright --
+
 pcall(function()
-  game.CoreGui:FindFirstChild("D"):Destroy()
+  game.CoreGui:FindFirstChild("RaiderHub"):Destroy()
 end)
 
 local TweenService = game:GetService("TweenService")
@@ -129,7 +133,7 @@ local TextBox = Instance.new("TextLabel")
 local Title1 = Instance.new("TextLabel")
 local Title12 = Instance.new("TextButton")
 
-UILibrary.Name = "D"
+UILibrary.Name = "RaiderHub"
 UILibrary.Parent = game.CoreGui
 UILibrary.DisplayOrder = 1
 UILibrary.ZIndexBehavior = Enum.ZIndexBehavior.Global
@@ -183,7 +187,7 @@ Title1.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title1.TextSize = 20
 Title1.TextXAlignment = Enum.TextXAlignment.Left
 
-function Library:Window(v)
+function Library:NewWindow(v)
   Title1.Text = v
 end
 
@@ -1236,13 +1240,13 @@ function Library:CreateTab(name)
             --table.insert(Library.LibraryColorTable, CheckboxTicked)
         end
 
-        function SectionElements:Dropdown(name, options, callback)
+        function SectionElements:Dropdown(name, options, presetoption, callback)
             local NameDropdown = Instance.new("Frame")
             local TitleToggle = Instance.new("TextButton")
             local Dropdown = Instance.new("ImageLabel")
             local DropdownContentLayout = Instance.new("UIListLayout")
 
-            local presetoption = 1
+            --local presetoption = 1
             local DropdownToggled = true
             local SelectedOption = options[presetoption]
 
