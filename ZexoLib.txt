@@ -1,8 +1,6 @@
-﻿for _, v in pairs(game.CoreGui:GetChildren()) do
-    if v.Name == "RaiderHub" then
-        v:Destroy() 
-   end
-end
+﻿pcall(function()
+  game:GetService("CoreGui"):FindFirstChild("RaiderHub"):Destroy()
+end)
 
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -161,15 +159,17 @@ Border.ImageColor3 = Library.Theme.MainColor
 Border.ImageTransparency = 1
 
 TextBox.Parent = Main
-TextBox.BackgroundColor3 = Color3.fromRGB(0,0,0)
+TextBox.BackgroundColor3 = Color3.fromRGB(20,20,20)
 TextBox.BackgroundTransparency = 0
-TextBox.Size = UDim2.new(0, 449, 0, -50)
+TextBox.Size = UDim2.new(0, 448.5, 0, -50)
 TextBox.Font = Enum.Font.SourceSansLight
 TextBox.FontSize = Enum.FontSize.Size14
 TextBox.Text = ""
 TextBox.TextScaled = true
 TextBox.TextSize = 8
 TextBox.TextWrapped = true
+TextBox.BorderColor3 = Color3.fromRGB(0,255,255)
+TextBox.BorderSizePixel = 2
 
 Title1.Name = "Title"
 Title1.Parent = TextBox
