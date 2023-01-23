@@ -356,7 +356,7 @@ function Library:CreateTab(name)
     Title.ZIndex = 2
     Title.Font = Library.Theme.TextFont
     Title.Text =  name
-    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.TextColor3 = Color3.fromRGB(0, 255, 255)
     Title.TextSize = 15.000
 
     SectionLayout.Name = "SectionLayout"
@@ -374,7 +374,7 @@ function Library:CreateTab(name)
     --table.insert(Library.LibraryColorTable, NameTabButton)
     CloseAllTabs()
     ResetAllTabButtons()
-    TweenService:Create(NameTabButton, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = DarkenObjectColor(Library.Theme.MainColor, 15)}):Play()
+    TweenService:Create(NameTabButton, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = Library.Theme.MainColor}):Play()
 
     KeepFirstTabOpen()
 
@@ -383,7 +383,7 @@ function Library:CreateTab(name)
         ResetAllTabButtons()
 
         NameTab.Visible = true
-        TweenService:Create(NameTabButton, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = DarkenObjectColor(Library.Theme.MainColor, 15)}):Play()
+        TweenService:Create(NameTabButton, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = Library.Theme.MainColor}):Play()
     end)
 
     function TabElements:CreateSection(name)
