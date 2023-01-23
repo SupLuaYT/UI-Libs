@@ -280,7 +280,7 @@ local function KeepFirstTabOpen()
     for i, v in pairs(TabButtons:GetChildren()) do
         if v:IsA("ImageButton") then
             if v.Name:find(Library.FirstTab .. "TabButton") then
-                TweenService:Create(v, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = DarkenObjectColor(Library.Theme.MainColor, 15)}):Play()
+                TweenService:Create(v, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = Library.Theme.MainColor}):Play()
             else
                 TweenService:Create(v, TweenInfo.new(0.3, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = Library.Theme.MainColor}):Play()
             end
@@ -356,7 +356,7 @@ function Library:CreateTab(name)
     Title.ZIndex = 2
     Title.Font = Library.Theme.TextFont
     Title.Text =  name
-    Title.TextColor3 = Color3.fromRGB(0, 255, 255)
+    Title.TextColor3 = Color3.fromRGB(0, 0, 0)
     Title.TextSize = 15.000
 
     SectionLayout.Name = "SectionLayout"
