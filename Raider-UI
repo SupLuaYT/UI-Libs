@@ -1236,12 +1236,13 @@ function Library:CreateTab(name)
             --table.insert(Library.LibraryColorTable, CheckboxTicked)
         end
 
-        function SectionElements:Dropdown(name, options, presetoption, callback)
+        function SectionElements:Dropdown(name, options, callback)
             local NameDropdown = Instance.new("Frame")
             local TitleToggle = Instance.new("TextButton")
             local Dropdown = Instance.new("ImageLabel")
             local DropdownContentLayout = Instance.new("UIListLayout")
 
+            local presetoption = 1
             local DropdownToggled = true
             local SelectedOption = options[presetoption]
 
