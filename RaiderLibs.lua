@@ -531,7 +531,7 @@ function Library:CreateTab(name)
             ButtonRounded.SliceScale = 0.050
 
             Button.MouseButton1Down:Connect(function()
-                TweenService:Create(ButtonRounded, TweenInfo.new(0.25, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = DarkenObjectColor(Library.Theme.MainColor, 20)}):Play()
+                TweenService:Create(ButtonRounded, TweenInfo.new(0.25, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {ImageColor3 = Library.Theme.MainColor)}):Play()
 
                 RippleEffect(Button)
             end)
