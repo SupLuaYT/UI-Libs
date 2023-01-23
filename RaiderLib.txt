@@ -1,8 +1,6 @@
-﻿for _, v in pairs(game.CoreGui:GetChildren()) do
-    if v.Name == "D" then
-        v:Destroy() 
-   end
-end
+pcall(function()
+  game.CoreGui:FindFirstChild("D"):Destroy()
+end)
 
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
