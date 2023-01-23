@@ -127,6 +127,7 @@ local TabButtons = Instance.new("ImageLabel")
 local TabButtonLayout = Instance.new("UIListLayout")
 local TextBox = Instance.new("TextLabel")
 local Title1 = Instance.new("TextLabel")
+local Title12 = Instance.new("TextLabel")
 
 UILibrary.Name = "D"
 UILibrary.Parent = game.CoreGui
