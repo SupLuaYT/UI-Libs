@@ -2,7 +2,7 @@
     local TweenService = game:GetService("TweenService")
 
     local ScreenGui = Instance.new("ScreenGui")
-    local Toggle = Instance.new("TextButton")
+    local Toggle = Instance.new("ImageButton")
     
     ScreenGui.Name = "ScreenGui"
     ScreenGui.Parent = game.CoreGui
