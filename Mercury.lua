@@ -747,7 +747,7 @@ function Library:create(options)
 	end
 
 	local profileName = profile:object("TextLabel", {
-		Text = "@" .. LocalPlayer.Name,
+		Text = "Thanks for using our script!",
 		TextScaled = true,
 		Position = UDim2.new(0, 105,0, 47),
 		Theme = {TextColor3 = "Tertiary"},
