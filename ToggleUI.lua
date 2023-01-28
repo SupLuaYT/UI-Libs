@@ -10,7 +10,7 @@
     Toggle.Name = "Toggle"
     Toggle.Parent = ScreenGui
     Toggle.BorderSizePixel = 2
-    Toggle.BorderColor3 = Color3.fronRGB(0,255,255)
+    Toggle.BorderColor3 = Color3.fromRGB(0,255,255)
     Toggle.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
     Toggle.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
     Toggle.Size = UDim2.new(0, 50, 0, 50)
