@@ -521,7 +521,7 @@ function Library:Window(Setting)
             TextLabel.Size = UDim2.new(1, -6, 0, 34)
             TextLabel.Font = Enum.Font.Gotham
             TextLabel.Text = "  "..labeltext
-            TextLabel.TextColor3 = Theme.Text
+            TextLabel.TextColor3 = Theme.Header
             TextLabel.TextSize = 14.000
             TextLabel.TextXAlignment = Enum.TextXAlignment.Left
             
