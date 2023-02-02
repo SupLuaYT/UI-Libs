@@ -15,6 +15,14 @@ local Theme = {
 
 local Library = {}
 
+function Library:ToggleUI()
+    if game.CoreGui["RaiderHub"].Enabled then
+        game.CoreGui["RaiderHub"].Enabled = false
+    else
+        game.CoreGui["RaiderHub"].Enabled = true
+    end
+end
+
 function Library:Dragging(frame, parent)
     local gui = parent or frame
     local dragging
