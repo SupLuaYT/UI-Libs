@@ -492,7 +492,7 @@ function Library:Window(Setting)
             local toggled = value
             if toggled then
             TweenService:Create(Toggle_2, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}, true):Play()
-                callback(toggled)
+                pcall(callback, toggled)
             end
             
             Toggle.MouseButton1Click:Connect(function()
@@ -505,7 +505,7 @@ function Library:Window(Setting)
                     TweenService:Create(Toggle_2, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}, true):Play()
                     TweenService:Create(Checked, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}, true):Play()
                 end
-                callback(toggled)
+                pcall(callback, toggled)
             end)
         end
 
