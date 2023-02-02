@@ -17,8 +17,8 @@
     Toggle.Image = "rbxassetid://7251993295"
     Toggle.ImageColor3 = Color3.fromRGB(0, 255, 255)
     Toggle.MouseButton1Down:connect(function()
-        game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-        game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,"F",false,game)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,"F",false,game)
     end)
 
     local gui = Toggle
