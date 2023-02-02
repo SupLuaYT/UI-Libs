@@ -544,7 +544,7 @@ function Library:Window(Setting)
             local CurrentBox = Instance.new("TextBox")
             local UICorner_8 = Instance.new("UICorner")
 
-            BoxFrame.Name = "KeyBind"
+            BoxFrame.Name = "BoxFrame"
             BoxFrame.Parent = Page
             BoxFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
             BoxFrame.Size = UDim2.new(1, -6, 0, 34)
@@ -558,7 +558,7 @@ function Library:Window(Setting)
             UICorner_7.Parent = BoxFrame
             
             Title.Name = "Title"
-            Title.Parent = KeyBind
+            Title.Parent = BoxFrame
             Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Title.BackgroundTransparency = 1.000
             Title.Position = UDim2.new(0, 8, 0, 0)
