@@ -464,7 +464,7 @@ function Library:Window(Setting)
             Toggle_2.BackgroundTransparency = 1.000
             Toggle_2.BorderSizePixel = 0
             Toggle_2.Position = UDim2.new(1, -8, 0.5, 0)
-            Toggle_2.Size = UDim2.new(0, 14, 0, 14)
+            Toggle_2.Size = UDim2.new(0, 15, 0, 15)
             
             Checked.Name = "Checked"
             Checked.Parent = Toggle_2
