@@ -411,7 +411,7 @@ function Library:Window(Setting)
             end)
             
             Button.MouseButton1Click:Connect(function()
-                callback()
+                pcall(callback)
             end)
             
             function ButtonFunc:Refresh(v)
@@ -585,7 +585,7 @@ function Library:Window(Setting)
             UICorner_8.Parent = CurrentBox
 
             CurrentBox.FocusLost:Connect(function()
-                callback(CurrentBox.Text)
+                pcall(callback, CurrentBox)
             end)
         end
 
@@ -653,7 +653,7 @@ function Library:Window(Setting)
             game:GetService("UserInputService").InputBegan:connect(function(current, ok) 
                 if not ok then 
                     if current.KeyCode.Name == Key then 
-                        callback(Key)
+                        pcall(callback, key)
                     end
                 end
             end)
@@ -777,7 +777,7 @@ function Library:Window(Setting)
                     UICorner.Parent = Option
 
                     Option.MouseButton1Click:Connect(function()
-                        callback(v)
+                        pcall(callback, v)
                         dropped = false
                         TweenService:Create(arrow, TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = 0}):Play()
                         Dropdown:TweenSize(UDim2.new(1, -6, 0, 34), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .15, true)
@@ -819,7 +819,7 @@ function Library:Window(Setting)
                     UICorner.Parent = Option
 
                     Option.MouseButton1Click:Connect(function()
-                        callback(vm)
+                        pcall(callback, v)
                         dropped = false
                         TweenService:Create(arrow, TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = 0}):Play()
                         Dropdown:TweenSize(UDim2.new(1, -6,0, 34), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .15, true)
