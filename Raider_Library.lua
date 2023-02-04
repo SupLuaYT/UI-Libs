@@ -72,6 +72,8 @@ function Library:Notification(Option)
 
     local PortalNotify = Instance.new("ScreenGui")
     local NotificationFrame = Instance.new("Frame")
+    local NotifyCorner = Instance.new("UICorner")
+    local MainStroke = Instance.new("UIStroke")
     local NotificationTitle = Instance.new("TextLabel")
     local NotificationDesc = Instance.new("TextLabel") 
 
@@ -88,6 +90,19 @@ function Library:Notification(Option)
     NotificationFrame.Active = true
     NotificationFrame.BorderSizePixel = 2
     NotificationFrame.BorderColor3 = getgenv().ThemeNotification
+
+    NotifyCorner.CornerRadius = UDim.new(0, 6)
+    NotifyCorner.Parent = NotificationFrame
+
+    MainStroke.Name = "MainStroke"
+    MainStroke.Parent = NotificationFrame
+    MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    MainStroke.Color = Theme.Header
+    MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+    MainStroke.Thickness = 2
+    MainStroke.Transparency = 0
+    MainStroke.Enabled = true
+    MainStroke.Archivable = true
 
     NotificationTitle.Parent = NotificationFrame
     NotificationTitle.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
