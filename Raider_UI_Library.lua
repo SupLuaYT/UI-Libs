@@ -542,6 +542,7 @@ function Library:Window(Setting)
             Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
+--[[
         function TabFunctions:Init(labeltext)
             --local LabelFunc = {}
             local TextLabel = Instance.new("TextLabel")
@@ -560,8 +561,9 @@ function Library:Window(Setting)
             TextLabel.TextXAlignment = Enum.TextXAlignment.Left
             Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
-
+]]
         function TabFunctions:Label(labeltext)
+            local LabelFunc = {}
             local TextLabel = Instance.new("TextLabel")
             local UICorner_6 = Instance.new("UICorner")
             
@@ -746,7 +748,7 @@ function Library:Window(Setting)
                 local Dropdown = Instance.new("Frame")
                 local UICorner723 = Instance.new("UICorner")
                 local UIListLayout_69 = Instance.new("UIListLayout")
-                local MainStroke = Instance.new("UIStroke")
+                --local MainStroke = Instance.new("UIStroke")
                 local Choose = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
                 local Title = Instance.new("TextLabel")
@@ -774,6 +776,7 @@ function Library:Window(Setting)
                 UIListLayout_69.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout_69.Padding = UDim.new(0, 5)
                 
+--[[
                 MainStroke.Name = "MainStroke"
                 MainStroke.Parent = Dropdown
                 MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
@@ -783,6 +786,7 @@ function Library:Window(Setting)
                 MainStroke.Transparency = 0
                 MainStroke.Enabled = true
                 MainStroke.Archivable = true
+]]
 
                 Choose.Name = "Choose"
                 Choose.Parent = Dropdown
