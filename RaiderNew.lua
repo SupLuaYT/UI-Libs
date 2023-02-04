@@ -402,7 +402,6 @@ function Library:Window(Setting)
             local ButtonFunc = {}
             local Button = Instance.new("TextButton")
             local UICorner = Instance.new("UICorner")
-            local MainStroke = Instance.new("UIStroke")
 
             Button.Name = "Button"
             Button.Text = title
@@ -417,16 +416,6 @@ function Library:Window(Setting)
             
             UICorner.CornerRadius = UDim.new(0, 6)
             UICorner.Parent = Button
-
-            MainStroke.Name = "MainStroke"
-            MainStroke.Parent = Button
-            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            MainStroke.Color = Theme.Header
-            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
-            MainStroke.Thickness = 1.5
-            MainStroke.Transparency = 0
-            MainStroke.Enabled = true
-            MainStroke.Archivable = true
 
             Button.MouseEnter:Connect(function()
                 TweenService:Create(Button, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {TextColor3 = Theme.Header}, true):Play()
@@ -453,7 +442,6 @@ function Library:Window(Setting)
             local callback = func or lfunc
 
             local Toggle = Instance.new("TextButton")
-            local MainStroke = Instance.new("UIStroke")
             local UICorner = Instance.new("UICorner")
             local Title = Instance.new("TextLabel")
             local Toggle_2 = Instance.new("Frame")
@@ -473,16 +461,6 @@ function Library:Window(Setting)
             
             UICorner.CornerRadius = UDim.new(0, 6)
             UICorner.Parent = Toggle
-            
-            MainStroke.Name = "MainStroke"
-            MainStroke.Parent = Toggle
-            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            MainStroke.Color = Theme.Header
-            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
-            MainStroke.Thickness = 1.5
-            MainStroke.Transparency = 0
-            MainStroke.Enabled = true
-            MainStroke.Archivable = true
 
             Title.Name = "Title"
             Title.Parent = Toggle
@@ -539,29 +517,9 @@ function Library:Window(Setting)
                 end
                 pcall(callback, toggled)
             end)
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            -Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
---[[
-        function TabFunctions:Init(labeltext)
-            --local LabelFunc = {}
-            local TextLabel = Instance.new("TextLabel")
-            local UICorner_6 = Instance.new("UICorner")
-            
-            TextLabel.Parent = Page
-            TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-            TextLabel.BackgroundTransparency = 1.000
-            TextLabel.BorderSizePixel = 0
-            TextLabel.Position = UDim2.new(0.198795184, 0, 0.0214592274, 0)
-            TextLabel.Size = UDim2.new(1, -6, 0, 10)
-            TextLabel.Font = Enum.Font.Gotham
-            TextLabel.Text = ""
-            TextLabel.TextColor3 = Theme.Header
-            TextLabel.TextSize = 1.000
-            TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
-        end
-]]
         function TabFunctions:Label(labeltext)
             local LabelFunc = {}
             local TextLabel = Instance.new("TextLabel")
@@ -571,21 +529,19 @@ function Library:Window(Setting)
             TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
             TextLabel.BackgroundTransparency = 1.000
             TextLabel.BorderSizePixel = 0
-            TextLabel.Position = UDim2.new(0.198795184, 0, 0.0214592274, 0)
             TextLabel.Size = UDim2.new(1, -6, 0, 34)
             TextLabel.Font = Enum.Font.Gotham
-            TextLabel.Text = "  "..labeltext
+            TextLabel.Text = labeltext
             TextLabel.TextColor3 = Theme.Header
             TextLabel.TextSize = 14.000
-            TextLabel.TextXAlignment = Enum.TextXAlignment.Left
             
             UICorner_6.CornerRadius = UDim.new(0, 6)
             UICorner_6.Parent = TextLabel
 
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function LabelFunc:Refresh(v)
-                TextLabel.Text = "  "..v
+                TextLabel.Text = v
             end
             return LabelFunc
         end
@@ -596,7 +552,6 @@ function Library:Window(Setting)
         
             local BoxFrame = Instance.new("TextButton")
             local UICorner_7 = Instance.new("UICorner")
-            local MainStroke = Instance.new("UIStroke")
             local Title = Instance.new("TextLabel")
             local CurrentBox = Instance.new("TextBox")
             local UICorner_8 = Instance.new("UICorner")
@@ -613,16 +568,6 @@ function Library:Window(Setting)
             
             UICorner_7.CornerRadius = UDim.new(0, 6)
             UICorner_7.Parent = BoxFrame
-            
-            MainStroke.Name = "MainStroke"
-            MainStroke.Parent = BoxFrame
-            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            MainStroke.Color = Theme.Header
-            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
-            MainStroke.Thickness = 1.5
-            MainStroke.Transparency = 0
-            MainStroke.Enabled = true
-            MainStroke.Archivable = true
 
             Title.Name = "Title"
             Title.Parent = BoxFrame
@@ -654,7 +599,7 @@ function Library:Window(Setting)
             CurrentBox.FocusLost:Connect(function()
                 pcall(callback, CurrentBox)
             end)
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
         function TabFunctions:Bind(text, keypreset, func)
@@ -665,7 +610,6 @@ function Library:Window(Setting)
             local Key = keypreset.Name
             local KeyBind = Instance.new("TextButton")
             local UICorner_51 = Instance.new("UICorner")
-            local MainStroke = Instance.new("UIStroke")
             local Title = Instance.new("TextLabel")
             local CurrentKey = Instance.new("TextLabel")
             local UICorner_52 = Instance.new("UICorner")
@@ -682,16 +626,6 @@ function Library:Window(Setting)
             
             UICorner_51.CornerRadius = UDim.new(0, 6)
             UICorner_51.Parent = KeyBind
-            
-            MainStroke.Name = "MainStroke"
-            MainStroke.Parent = KeyBind
-            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            MainStroke.Color = Theme.Header
-            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
-            MainStroke.Thickness = 1.5
-            MainStroke.Transparency = 0
-            MainStroke.Enabled = true
-            MainStroke.Archivable = true
 
             Title.Name = "Title"
             Title.Parent = KeyBind
@@ -736,7 +670,7 @@ function Library:Window(Setting)
                     end
                 end
             end)
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
         function TabFunctions:Dropdown(title, list, func)
@@ -748,7 +682,6 @@ function Library:Window(Setting)
                 local Dropdown = Instance.new("Frame")
                 local UICorner723 = Instance.new("UICorner")
                 local UIListLayout_69 = Instance.new("UIListLayout")
-                local MainStroke = Instance.new("UIStroke")
                 local Choose = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
                 local Title = Instance.new("TextLabel")
@@ -775,16 +708,6 @@ function Library:Window(Setting)
                 UIListLayout_69.HorizontalAlignment = Enum.HorizontalAlignment.Center
                 UIListLayout_69.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout_69.Padding = UDim.new(0, 5)
-                
-                MainStroke.Name = "MainStroke"
-                MainStroke.Parent = Dropdown
-                MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-                MainStroke.Color = Theme.Header
-                MainStroke.LineJoinMode = Enum.LineJoinMode.Round
-                MainStroke.Thickness = 1.6
-                MainStroke.Transparency = 0
-                MainStroke.Enabled = true
-                MainStroke.Archivable = true
 
                 Choose.Name = "Choose"
                 Choose.Parent = Dropdown
@@ -881,7 +804,7 @@ function Library:Window(Setting)
                     OptionHolder:TweenSize(UDim2.new(1, 0, 0, OptionList.AbsoluteContentSize.Y + 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .15, true)
             end
 
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function DropdownFunc:Clear(v)
                     for _,v  in next, OptionHolder:GetChildren() do
