@@ -748,7 +748,7 @@ function Library:Window(Setting)
                 local Dropdown = Instance.new("Frame")
                 local UICorner723 = Instance.new("UICorner")
                 local UIListLayout_69 = Instance.new("UIListLayout")
-                --local MainStroke = Instance.new("UIStroke")
+                local MainStroke = Instance.new("UIStroke")
                 local Choose = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
                 local Title = Instance.new("TextLabel")
@@ -776,17 +776,15 @@ function Library:Window(Setting)
                 UIListLayout_69.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout_69.Padding = UDim.new(0, 5)
                 
---[[
                 MainStroke.Name = "MainStroke"
                 MainStroke.Parent = Dropdown
                 MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
                 MainStroke.Color = Theme.Header
                 MainStroke.LineJoinMode = Enum.LineJoinMode.Round
-                MainStroke.Thickness = 1.5
+                MainStroke.Thickness = 1.6
                 MainStroke.Transparency = 0
                 MainStroke.Enabled = true
                 MainStroke.Archivable = true
-]]
 
                 Choose.Name = "Choose"
                 Choose.Parent = Dropdown
