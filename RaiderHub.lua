@@ -531,7 +531,7 @@ function Library:Window(Setting)
             
             TextLabel.Parent = Page
             TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-            TextLabel.BackgroundTransparency = 0
+            TextLabel.BackgroundTransparency = 1.000
             TextLabel.BorderSizePixel = 0
             TextLabel.Position = UDim2.new(0.198795184, 0, 0.0214592274, 0)
             TextLabel.Size = UDim2.new(1, -6, 0, 34)
@@ -704,6 +704,7 @@ function Library:Window(Setting)
                 local DropdownFunc = {}
                 local dropped = false
                 local Dropdown = Instance.new("Frame")
+                local UICorner723 = Instance.new("UICorner")
                 local UIListLayout_69 = Instance.new("UIListLayout")
                 local MainStroke = Instance.new("UIStroke")
                 local Choose = Instance.new("TextButton")
@@ -724,6 +725,9 @@ function Library:Window(Setting)
                 Dropdown.ClipsDescendants = true
                 Dropdown.Position = UDim2.new(0, 0, -0.296137333, 0)
                 Dropdown.Size = UDim2.new(1, -6, 0, 34)
+
+                UICorner723.CornerRadius = UDim.new(0, 6)
+                UICorner723.Parent = Dropdown
 
                 UIListLayout_69.Parent = Dropdown
                 UIListLayout_69.HorizontalAlignment = Enum.HorizontalAlignment.Center
