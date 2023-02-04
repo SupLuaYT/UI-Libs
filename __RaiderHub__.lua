@@ -508,7 +508,7 @@ function Library:Window(Setting)
 
             local toggled = value
             if toggled then
-            TweenService:Create(Checked, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 1}, true):Play()
+            TweenService:Create(Checked, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}, true):Play()
                 pcall(callback, toggled)
             end
             
