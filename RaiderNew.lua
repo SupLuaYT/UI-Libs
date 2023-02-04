@@ -429,7 +429,7 @@ function Library:Window(Setting)
                 pcall(callback)
             end)
             
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function ButtonFunc:Refresh(v)
                 Button.Text = v
@@ -517,7 +517,7 @@ function Library:Window(Setting)
                 end
                 pcall(callback, toggled)
             end)
-            -Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
         function TabFunctions:Label(labeltext)
