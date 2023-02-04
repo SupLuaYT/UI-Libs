@@ -346,13 +346,13 @@ function Library:Window(Setting)
         Page.BorderSizePixel = 0
         Page.Size = UDim2.new(1, 0, 1, 0)
         Page.CanvasPosition = Vector2.new(0, 0)
-        Page.ScrollBarThickness = 2
+        Page.ScrollBarThickness = 1
         Page.ScrollBarImageColor3 = Theme.Scroll
         
         UIListLayout.Parent = Page
         UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
         UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-        UIListLayout.Padding = UDim.new(0, 6) 
+        UIListLayout.Padding = UDim.new(0, 5) 
         
         UIPadding.Parent = Page
         UIPadding.PaddingTop = UDim.new(0, 5)
