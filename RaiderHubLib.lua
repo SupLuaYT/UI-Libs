@@ -425,11 +425,12 @@ function Library:Window(Setting)
                 pcall(callback)
             end)
             
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
+
             function ButtonFunc:Refresh(v)
                 Button.Text = v
             end
             return ButtonFunc
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
         end
 
         function TabFunctions:Toggle(name, value, func)
