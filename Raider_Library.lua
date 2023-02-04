@@ -527,8 +527,26 @@ function Library:Window(Setting)
             Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
+        function TabFunctions:Init(labeltext)
+            --local LabelFunc = {}
+            local TextLabel = Instance.new("TextLabel")
+            local UICorner_6 = Instance.new("UICorner")
+            
+            TextLabel.Parent = Page
+            TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            TextLabel.BackgroundTransparency = 1.000
+            TextLabel.BorderSizePixel = 0
+            TextLabel.Position = UDim2.new(0.198795184, 0, 0.0214592274, 0)
+            TextLabel.Size = UDim2.new(1, -6, 0, 10)
+            TextLabel.Font = Enum.Font.Gotham
+            TextLabel.Text = ""
+            TextLabel.TextColor3 = Theme.Header
+            TextLabel.TextSize = 1.000
+            TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
+        end
+
         function TabFunctions:Label(labeltext)
-            local LabelFunc = {}
             local TextLabel = Instance.new("TextLabel")
             local UICorner_6 = Instance.new("UICorner")
             
