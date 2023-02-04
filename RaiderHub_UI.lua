@@ -387,6 +387,7 @@ function Library:Window(Setting)
             local ButtonFunc = {}
             local Button = Instance.new("TextButton")
             local UICorner = Instance.new("UICorner")
+            local MainStroke = Instance.new("UIStroke")
 
             Button.Name = "Button"
             Button.Text = title
@@ -401,6 +402,16 @@ function Library:Window(Setting)
             
             UICorner.CornerRadius = UDim.new(0, 6)
             UICorner.Parent = Button
+
+            MainStroke.Name = "MainStroke"
+            MainStroke.Parent = Button
+            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            MainStroke.Color = Theme.Header
+            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+            MainStroke.Thickness = 1.5
+            MainStroke.Transparency = 0
+            MainStroke.Enabled = true
+            MainStroke.Archivable = true
 
             Button.MouseEnter:Connect(function()
                 TweenService:Create(Button, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {TextColor3 = Theme.Header}, true):Play()
