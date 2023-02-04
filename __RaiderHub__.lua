@@ -425,7 +425,7 @@ function Library:Window(Setting)
                 pcall(callback)
             end)
             
-            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function ButtonFunc:Refresh(v)
                 Button.Text = v
