@@ -524,6 +524,7 @@ function Library:Window(Setting)
                 end
                 pcall(callback, toggled)
             end)
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
         end
 
         function TabFunctions:Label(labeltext)
@@ -545,6 +546,8 @@ function Library:Window(Setting)
             
             UICorner_6.CornerRadius = UDim.new(0, 6)
             UICorner_6.Parent = TextLabel
+
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
 
             function LabelFunc:Refresh(v)
                 TextLabel.Text = "  "..v
@@ -616,6 +619,7 @@ function Library:Window(Setting)
             CurrentBox.FocusLost:Connect(function()
                 pcall(callback, CurrentBox)
             end)
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
         end
 
         function TabFunctions:Bind(text, keypreset, func)
@@ -697,6 +701,7 @@ function Library:Window(Setting)
                     end
                 end
             end)
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
         end
 
         function TabFunctions:Dropdown(title, list, func)
@@ -840,6 +845,8 @@ function Library:Window(Setting)
                     end)
                     OptionHolder:TweenSize(UDim2.new(1, 0, 0, OptionList.AbsoluteContentSize.Y + 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .15, true)
             end
+
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
 
             function DropdownFunc:Clear(v)
                     for _,v  in next, OptionHolder:GetChildren() do
