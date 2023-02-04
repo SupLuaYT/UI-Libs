@@ -429,6 +429,7 @@ function Library:Window(Setting)
                 Button.Text = v
             end
             return ButtonFunc
+            Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y) 
         end
 
         function TabFunctions:Toggle(name, value, func)
@@ -506,7 +507,7 @@ function Library:Window(Setting)
 
             local toggled = value
             if toggled then
-            TweenService:Create(Checked, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}, true):Play()
+            TweenService:Create(Checked, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 1}, true):Play()
                 pcall(callback, toggled)
             end
             
