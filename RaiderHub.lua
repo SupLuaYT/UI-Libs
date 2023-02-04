@@ -436,6 +436,7 @@ function Library:Window(Setting)
             local callback = func or lfunc
 
             local Toggle = Instance.new("TextButton")
+            local MainStroke = Instance.new("UIStroke")
             local UICorner = Instance.new("UICorner")
             local Title = Instance.new("TextLabel")
             local Toggle_2 = Instance.new("Frame")
@@ -456,6 +457,16 @@ function Library:Window(Setting)
             UICorner.CornerRadius = UDim.new(0, 6)
             UICorner.Parent = Toggle
             
+            MainStroke.Name = "MainStroke"
+            MainStroke.Parent = Toggle
+            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            MainStroke.Color = Theme.Header
+            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+            MainStroke.Thickness = 1.5
+            MainStroke.Transparency = 0
+            MainStroke.Enabled = true
+            MainStroke.Archivable = true
+
             Title.Name = "Title"
             Title.Parent = Toggle
             Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -484,36 +495,29 @@ function Library:Window(Setting)
             Checked.Position = UDim2.new(-0.214285731, 0, -0.214285731, 0)
             Checked.Size = UDim2.new(0, 20, 0, 20)
             Checked.Image = "http://www.roblox.com/asset/?id=7812909048"
-            Checked.ImageTransparency = 1
+            Checked.ImageTransparency = 1.000
+            Checked.ImageColor3 = Theme.Header
             Checked.ScaleType = Enum.ScaleType.Fit
             
             Stroke.Parent = Toggle_2
             Stroke.LineJoinMode = Enum.LineJoinMode.Round
             Stroke.Thickness = 2
             Stroke.Color = Theme.Header
-            
-            Toggle.MouseEnter:Connect(function()
-                TweenService:Create(Toggle, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}, true):Play()
-            end)
-    
-            Toggle.MouseLeave:Connect(function()
-                TweenService:Create(Toggle, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}, true):Play()
-            end)
 
             local toggled = value
             if toggled then
-            TweenService:Create(Toggle_2, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}, true):Play()
+            TweenService:Create(Checked, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}, true):Play()
                 pcall(callback, toggled)
             end
             
             Toggle.MouseButton1Click:Connect(function()
                 if toggled then  
                     toggled = false 
-                    TweenService:Create(Toggle_2, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}, true):Play()
+                    --TweenService:Create(Toggle_2, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}, true):Play()
                     TweenService:Create(Checked, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 1}, true):Play()
                 else
                     toggled = true
-                    TweenService:Create(Toggle_2, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}, true):Play()
+                    --TweenService:Create(Toggle_2, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}, true):Play()
                     TweenService:Create(Checked, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{ImageTransparency = 0}, true):Play()
                 end
                 pcall(callback, toggled)
@@ -527,6 +531,7 @@ function Library:Window(Setting)
             
             TextLabel.Parent = Page
             TextLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            TextLabel.BackgroundTransparency = 0
             TextLabel.BorderSizePixel = 0
             TextLabel.Position = UDim2.new(0.198795184, 0, 0.0214592274, 0)
             TextLabel.Size = UDim2.new(1, -6, 0, 34)
@@ -551,6 +556,7 @@ function Library:Window(Setting)
         
             local BoxFrame = Instance.new("TextButton")
             local UICorner_7 = Instance.new("UICorner")
+            local MainStroke = Instance.new("UIStroke")
             local Title = Instance.new("TextLabel")
             local CurrentBox = Instance.new("TextBox")
             local UICorner_8 = Instance.new("UICorner")
@@ -568,6 +574,16 @@ function Library:Window(Setting)
             UICorner_7.CornerRadius = UDim.new(0, 6)
             UICorner_7.Parent = BoxFrame
             
+            MainStroke.Name = "MainStroke"
+            MainStroke.Parent = BoxFrame
+            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            MainStroke.Color = Theme.Header
+            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+            MainStroke.Thickness = 1.5
+            MainStroke.Transparency = 0
+            MainStroke.Enabled = true
+            MainStroke.Archivable = true
+
             Title.Name = "Title"
             Title.Parent = BoxFrame
             Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -608,6 +624,7 @@ function Library:Window(Setting)
             local Key = keypreset.Name
             local KeyBind = Instance.new("TextButton")
             local UICorner_51 = Instance.new("UICorner")
+            local MainStroke = Instance.new("UIStroke")
             local Title = Instance.new("TextLabel")
             local CurrentKey = Instance.new("TextLabel")
             local UICorner_52 = Instance.new("UICorner")
@@ -625,6 +642,16 @@ function Library:Window(Setting)
             UICorner_51.CornerRadius = UDim.new(0, 6)
             UICorner_51.Parent = KeyBind
             
+            MainStroke.Name = "MainStroke"
+            MainStroke.Parent = KeyBind
+            MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            MainStroke.Color = Theme.Header
+            MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+            MainStroke.Thickness = 1.5
+            MainStroke.Transparency = 0
+            MainStroke.Enabled = true
+            MainStroke.Archivable = true
+
             Title.Name = "Title"
             Title.Parent = KeyBind
             Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -678,6 +705,7 @@ function Library:Window(Setting)
                 local dropped = false
                 local Dropdown = Instance.new("Frame")
                 local UIListLayout_69 = Instance.new("UIListLayout")
+                local MainStroke = Instance.new("UIStroke")
                 local Choose = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
                 local Title = Instance.new("TextLabel")
@@ -702,6 +730,16 @@ function Library:Window(Setting)
                 UIListLayout_69.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout_69.Padding = UDim.new(0, 5)
                 
+                MainStroke.Name = "MainStroke"
+                MainStroke.Parent = Dropdown
+                MainStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+                MainStroke.Color = Theme.Header
+                MainStroke.LineJoinMode = Enum.LineJoinMode.Round
+                MainStroke.Thickness = 1.5
+                MainStroke.Transparency = 0
+                MainStroke.Enabled = true
+                MainStroke.Archivable = true
+
                 Choose.Name = "Choose"
                 Choose.Parent = Dropdown
                 Choose.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
