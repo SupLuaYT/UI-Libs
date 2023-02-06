@@ -81,7 +81,7 @@ function Library:Notification(Option)
     PortalNotify.Parent = game.CoreGui
     
     NotificationFrame.Parent = PortalNotify
-    NotificationFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    NotificationFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     NotificationFrame.BackgroundTransparency = 1
     NotificationFrame.Position = UDim2.new(1, -25, 1, -25)
     NotificationFrame.AnchorPoint = Vector2.new(1, 1)
@@ -105,7 +105,7 @@ function Library:Notification(Option)
     MainStroke.Archivable = true
 
     NotificationTitle.Parent = NotificationFrame
-    NotificationTitle.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    NotificationTitle.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     NotificationTitle.BorderSizePixel = 0
     NotificationTitle.BackgroundTransparency = 1
     NotificationTitle.TextTransparency = 1
@@ -120,7 +120,7 @@ function Library:Notification(Option)
     NotificationTitle.TextXAlignment = Enum.TextXAlignment.Left
 
     NotificationDesc.Parent = NotificationFrame
-    NotificationDesc.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    NotificationDesc.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     NotificationDesc.BorderSizePixel = 0
     NotificationDesc.BackgroundTransparency = 1
     NotificationDesc.TextTransparency = 1
@@ -148,6 +148,7 @@ function Library:Window(Setting)
     local Title = Setting.Name
     local Logo = Setting.Logo
     local UseRbxAsset = Setting.UseRbxAsset
+    local UseTime = Setting.UseTime
     
     if Title == nil then
       Title = ""
@@ -261,7 +262,7 @@ function Library:Window(Setting)
     Line.Parent = Top
     Line.AnchorPoint = Vector2.new(0.5, 1)
     Line.BackgroundColor3 = Theme.Header
-    Line.BackgroundTransparency = 0.920
+    Line.BackgroundTransparency = 1
     Line.Position = UDim2.new(0.5, 0, 1, 1)
     Line.Size = UDim2.new(1, 0, 0, 1)
 
@@ -327,7 +328,30 @@ function Library:Window(Setting)
     Cover.BorderSizePixel = 0
     Cover.Position = UDim2.new(1, 0, 0.5, 0)
     Cover.Size = UDim2.new(0, 5, 1, 0)
+    
     Main:TweenSize(UDim2.new(0, 470, 0, 283), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, .2)
+
+    if UseTime == true then
+      local function TimeLabel(v)
+          GameName.Text = tostring(Title).." | "..v
+      end
+
+      local function UpdateOS()
+          local date = os.date("*t")
+          local hour = (date.hour) % 24
+          local ampm = hour < 12 and "AM" or "PM"
+          local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm)
+          local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year)
+          TimeLabel(datetime.." | "..timezone)
+      end
+
+      spawn(function()
+          while true do
+              UpdateOS()
+              game:GetService("RunService").RenderStepped:Wait()
+          end
+      end)
+  end
 
     local Tabs = {}
     
@@ -392,7 +416,7 @@ function Library:Window(Setting)
                 end
             end
         end)
-                
+
         local TabFunctions = {}
         
         function TabFunctions:Button(title, func)
@@ -428,8 +452,6 @@ function Library:Window(Setting)
             Button.MouseButton1Click:Connect(function()
                 pcall(callback)
             end)
-            
-            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function ButtonFunc:Refresh(v)
                 Button.Text = v
@@ -517,10 +539,130 @@ function Library:Window(Setting)
                 end
                 pcall(callback, toggled)
             end)
-            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
-        function TabFunctions:Label(labeltext)
+        function TabFunctions:Slider(Name,Min,Max,Callback)
+            local lfunc = function() end
+            local Callback = func or lfunc
+            
+            local SliderFrame = Instance.new("Frame")
+            local SliderFrameCorner = Instance.new("UICorner")
+            local SliderButton = Instance.new("TextButton")
+            local SliderButtonCorner = Instance.new("UICorner")
+            local SliderTrail = Instance.new("Frame")
+            local SliderTrailCorner = Instance.new("UICorner")
+            local SliderName = Instance.new("TextLabel")
+            local SliderNamePadding = Instance.new("UIPadding")
+            local SliderValue = Instance.new("TextLabel")
+            local SliderValuePadding = Instance.new("UIPadding")
+
+            SliderFrame.Name = "SliderFrame"
+            SliderFrame.Parent = Page
+            SliderFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+            SliderFrame.Size = UDim2.new(1, -6, 0, 34)
+
+            SliderFrameCorner.Name = "SliderFrameCorner"
+            SliderFrameCorner.Parent = SliderFrame
+
+            local SliderButtonSized = 310
+            SliderButton.Name = "SliderButton"
+            SliderButton.Parent = SliderFrame
+            SliderButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            SliderButton.BorderSizePixel = 0
+            SliderButton.Position = UDim2.new(0.0242369417, 0, 0.639999986, 0)
+            SliderButton.Size = UDim2.new(0, 310, 0, 10)
+            SliderButton.Font = Enum.Font.SourceSans
+            SliderButton.Text = ""
+            SliderButton.TextColor3 = Theme.Header
+            SliderButton.TextSize = 14.000
+
+            SliderButtonCorner.Name = "SliderButtonCorner"
+            SliderButtonCorner.Parent = SliderButton
+
+            SliderTrail.Name = "SliderTrail"
+            SliderTrail.Parent = SliderButton
+            SliderTrail.BackgroundColor3 = Theme.Header
+            SliderTrail.Size = UDim2.new(0, 0, 0, 10)
+            SliderTrail.BorderSizePixel = 0
+
+            SliderTrailCorner.Name = "SliderTrailCorner"
+            SliderTrailCorner.Parent = SliderTrail
+
+            SliderName.Name = "SliderName"
+            SliderName.Parent = SliderFrame
+            SliderName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            SliderName.BackgroundTransparency = 1.000
+            SliderName.BorderSizePixel = 0
+            SliderName.Size = UDim2.new(1, -4, 0, 26)
+            SliderName.Font = Enum.Font.Gotham
+            SliderName.Text = Name
+            SliderName.TextColor3 = Theme.Text
+            SliderName.TextSize = 14.000
+            SliderName.TextXAlignment = Enum.TextXAlignment.Left
+
+            SliderNamePadding.Name = "SliderNamePadding"
+            SliderNamePadding.Parent = SliderName
+            SliderNamePadding.PaddingLeft = UDim.new(0, 10)
+
+            SliderValue.Name = "SliderValue"
+            SliderValue.Parent = SliderFrame
+            SliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            SliderValue.BackgroundTransparency = 1.000
+            SliderValue.BorderSizePixel = 0
+            SliderValue.TextTransparency = 1.000
+            SliderValue.Position = UDim2.new(0.752061796, 0, 0, 0)
+            SliderValue.Size = UDim2.new(0, 80, 0, 26)
+            SliderValue.Font = Enum.Font.Gotham
+            SliderValue.Text = "..."
+            SliderValue.TextColor3 = Theme.Text
+            SliderValue.TextSize = 14.000
+            SliderValue.TextXAlignment = Enum.TextXAlignment.Right
+
+            SliderValuePadding.Name = "SliderValuePadding"
+            SliderValuePadding.Parent = SliderValue
+            SliderValuePadding.PaddingRight = UDim.new(0, 10)
+
+            local ms = game.Players.LocalPlayer:GetMouse()
+            local uis = game:GetService("UserInputService")
+            local Value
+            local mouse = game:GetService("Players").LocalPlayer:GetMouse();
+
+            SliderButton.MouseButton1Down:Connect(function()
+                game:GetService("TweenService"):Create(SliderValue, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                    TextTransparency = 0
+                }):Play()
+                Value = math.floor((((tonumber(Max) - tonumber(Min)) / SliderButtonSized) * SliderTrail.AbsoluteSize.X) + tonumber(Min)) or 0
+                pcall(function()
+                    Callback(Value)
+                end)
+                SliderTrail:TweenSize(UDim2.new(0, math.clamp(mouse.X - SliderTrail.AbsolutePosition.X, 0, SliderButtonSized), 0, 10), "InOut", "Linear", 0.05, true)
+                moveconnection = mouse.Move:Connect(function()
+                    SliderValue.Text = Value
+                    Value = math.floor((((tonumber(Max) - tonumber(Min)) / SliderButtonSized) * SliderTrail.AbsoluteSize.X) + tonumber(Min))
+                    pcall(function()
+                        Callback(Value)
+                    end)
+                    SliderTrail:TweenSize(UDim2.new(0, math.clamp(mouse.X - SliderTrail.AbsolutePosition.X, 0, SliderButtonSized), 0, 10), "InOut", "Linear", 0.05, true)
+                end)
+                releaseconnection = uis.InputEnded:Connect(function(Mouse)
+                    if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
+                        Value = math.floor((((tonumber(Max) - tonumber(Min)) / SliderButtonSized) * SliderTrail.AbsoluteSize.X) + tonumber(Min))
+                        pcall(function()
+                            Callback(Value)
+                        end)
+                        SliderValue.Text = Value
+                        game:GetService("TweenService"):Create(SliderValue, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                            TextTransparency = 1
+                        }):Play()
+                        SliderTrail:TweenSize(UDim2.new(0, math.clamp(mouse.X - SliderTrail.AbsolutePosition.X, 0, SliderButtonSized), 0, 10), "InOut", "Linear", 0.05, true)
+                        moveconnection:Disconnect()
+                        releaseconnection:Disconnect()
+                    end
+                end)
+            end)
+        end
+
+        function TabFunctions:Label(labeltext, color)
             local LabelFunc = {}
             local TextLabel = Instance.new("TextLabel")
             local UICorner_6 = Instance.new("UICorner")
@@ -532,13 +674,11 @@ function Library:Window(Setting)
             TextLabel.Size = UDim2.new(1, -6, 0, 34)
             TextLabel.Font = Enum.Font.Gotham
             TextLabel.Text = labeltext
-            TextLabel.TextColor3 = Theme.Header
+            TextLabel.TextColor3 = color or Theme.Header
             TextLabel.TextSize = 14.000
             
             UICorner_6.CornerRadius = UDim.new(0, 6)
             UICorner_6.Parent = TextLabel
-
-            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function LabelFunc:Refresh(v)
                 TextLabel.Text = v
@@ -599,7 +739,6 @@ function Library:Window(Setting)
             CurrentBox.FocusLost:Connect(function()
                 pcall(callback, CurrentBox)
             end)
-            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
         function TabFunctions:Bind(text, keypreset, func)
@@ -670,7 +809,6 @@ function Library:Window(Setting)
                     end
                 end
             end)
-            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
         end
 
         function TabFunctions:Dropdown(title, list, func)
@@ -803,8 +941,6 @@ function Library:Window(Setting)
                     end)
                     OptionHolder:TweenSize(UDim2.new(1, 0, 0, OptionList.AbsoluteContentSize.Y + 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .15, true)
             end
-
-            --Page.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 1) 
 
             function DropdownFunc:Clear(v)
                     for _,v  in next, OptionHolder:GetChildren() do
