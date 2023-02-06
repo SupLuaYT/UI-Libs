@@ -541,7 +541,7 @@ function Library:Window(Setting)
             end)
         end
 
-        function TabFunctions:Slider(Name,Min,Max,Callback)
+        function TabFunctions:Slider(Name,Min,Max,func)
             local lfunc = function() end
             local Callback = func or lfunc
             
