@@ -15,14 +15,6 @@ local Theme = {
 
 local Library = {}
 
-function Library:ToggleUI()
-    if game.CoreGui["RaiderHub"].Enabled then
-        game.CoreGui["RaiderHub"].Enabled = false
-    else
-        game.CoreGui["RaiderHub"].Enabled = true
-    end
-end
-
 function Library:Dragging(frame, parent)
     local gui = parent or frame
     local dragging
@@ -330,6 +322,27 @@ function Library:Window(Setting)
     Cover.Size = UDim2.new(0, 5, 1, 0)
     
     Main:TweenSize(UDim2.new(0, 470, 0, 283), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, .2)
+
+    local uitoggled = false
+    UserInputService.InputBegan:Connect(
+        function(io, p)
+            if io.KeyCode == Enum.KeyCode.RightControl then
+                if uitoggled == false then
+                    Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+                    uitoggled = true
+                else
+                    Main:TweenSize(
+                        UDim2.new(0, 470, 0, 283),
+                        Enum.EasingDirection.Out,
+                        Enum.EasingStyle.Quart,
+                        .6,
+                        true
+                    )
+                    uitoggled = false
+                end
+            end
+        end
+    )
 
     if UseTime == true then
       local function TimeLabel(v)
