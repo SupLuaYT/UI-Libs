@@ -197,7 +197,8 @@ function Library:Window(Setting)
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
     Main.Position = UDim2.new(0.5, 0, 0.5, 0)
     Main.Size = UDim2.new(0, 0, 0, 0)
-    
+    Main.ClipsDescendants = false
+
     Library:Dragging(Main, Main)
 
     UICorner_9.CornerRadius = UDim.new(0, 6)
@@ -328,9 +329,11 @@ function Library:Window(Setting)
         function(io, p)
             if io.KeyCode == Enum.KeyCode.RightControl then
                 if uitoggled == false then
+                    Main.ClipsDescendants = true
                     Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
                     uitoggled = true
                 else
+                    Main.ClipsDescendants = false
                     Main:TweenSize(
                         UDim2.new(0, 470, 0, 283),
                         Enum.EasingDirection.Out,
