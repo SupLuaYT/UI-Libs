@@ -198,6 +198,7 @@ function Library:Window(Setting)
     Main.Position = UDim2.new(0.5, 0, 0.5, 0)
     Main.Size = UDim2.new(0, 0, 0, 0)
     Main.ClipsDescendants = false
+    Main:Visible = true
 
     Library:Dragging(Main, Main)
 
@@ -331,6 +332,8 @@ function Library:Window(Setting)
                 if uitoggled == false then
                     Main.ClipsDescendants = true
                     Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+                    wait(.5)
+                    Main:Visible = false
                     uitoggled = true
                 else
                     Main.ClipsDescendants = false
@@ -341,6 +344,8 @@ function Library:Window(Setting)
                         .6,
                         true
                     )
+                    wait(.1)
+                    Main:Visible = true
                     uitoggled = false
                 end
             end
